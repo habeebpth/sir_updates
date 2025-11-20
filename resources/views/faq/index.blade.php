@@ -5,11 +5,6 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
             <div class="text-center mb-4 mb-md-5">
-                <div class="mb-3 mb-md-4">
-                    <img src="{{ asset('assets/images/sir_logo.png') }}"
-                         alt="SIR Logo"
-                         class="faq-logo">
-                </div>
                 <h1 class="faq-title fw-bold mb-2 mb-md-3">SIR മായി ബന്ധപ്പെട്ട് ആളുകൾക്ക് പൊതുവായി ഉണ്ടാകുന്ന സംശയങ്ങളും മറുപടികളും</h1>
                 <p class="lead text-muted d-none d-md-block">നിങ്ങളുടെ സംശയങ്ങൾക്ക് ഉത്തരം കണ്ടെത്തുക</p>
             </div>
@@ -65,12 +60,6 @@
 
 @push('styles')
 <style>
-    /* Logo Styling */
-    .faq-logo {
-        max-width: 120px;
-        height: auto;
-    }
-
     /* Title Styling - Desktop */
     .faq-title {
         font-size: 2rem;
@@ -80,10 +69,6 @@
 
     /* Mobile Responsive Styles */
     @media (max-width: 767.98px) {
-        .faq-logo {
-            max-width: 80px;
-        }
-
         .faq-title {
             font-size: 1.25rem;
             line-height: 1.4;
@@ -116,10 +101,6 @@
 
     /* Tablet Responsive Styles */
     @media (min-width: 768px) and (max-width: 991.98px) {
-        .faq-logo {
-            max-width: 100px;
-        }
-
         .faq-title {
             font-size: 1.75rem;
         }

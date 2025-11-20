@@ -8,7 +8,7 @@
                     <img src="{{ asset('assets/images/sir_logo.png') }}"
                          alt="SIR Logo"
                          class="header-logo">
-                    <span class="header-title">SIR Updates</span>
+                    <span class="header-title"></span>
                 </a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
@@ -65,6 +65,10 @@
         height: 50px;
         width: auto;
         transition: transform 0.3s ease;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 8px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
     }
 
     .header-title {
@@ -82,6 +86,7 @@
     @media (max-width: 767.98px) {
         .header-logo {
             height: 35px;
+            padding: 6px;
         }
 
         .header-title {
@@ -97,6 +102,7 @@
 
             .header-logo {
                 height: 30px;
+                padding: 5px;
             }
 
             .header-title {
@@ -109,6 +115,7 @@
     @media (min-width: 768px) and (max-width: 991.98px) {
         .header-logo {
             height: 45px;
+            padding: 7px;
         }
 
         .header-title {

@@ -38,13 +38,17 @@
     .admin-header-logo {
         height: 32px;
         width: auto;
-        filter: brightness(0) invert(1); /* Makes logo white for dark navbar */
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 6px;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(102, 126, 234, 0.4);
     }
 
     /* Mobile - smaller logo */
     @media (max-width: 767.98px) {
         .admin-header-logo {
             height: 24px;
+            padding: 4px;
         }
 
         .navbar-brand span {
