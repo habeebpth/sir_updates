@@ -287,10 +287,10 @@
                         <label class="form-label" for="organization_name">
                             സംഘടനയുടെ പേര് <span class="required">*</span>
                         </label>
-                        <select 
-                            class="form-control @error('organization_name') is-invalid @enderror" 
-                            id="organization_name" 
-                            name="organization_name" 
+                        <select
+                            class="form-control @error('organization_name') is-invalid @enderror"
+                            id="organization_name"
+                            name="organization_name"
                             required
                         >
                             <option value="">സംഘടന തിരഞ്ഞെടുക്കുക</option>
@@ -316,11 +316,11 @@
                         <label class="form-label" for="other_organization_name">
                             മറ്റ് സംഘടനയുടെ പേര് <span class="required">*</span>
                         </label>
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            id="other_organization_name" 
-                            name="other_organization_name" 
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="other_organization_name"
+                            name="other_organization_name"
                             value="{{ old('other_organization_name') }}"
                             placeholder="സംഘടനയുടെ പേര് നൽകുക"
                         >
@@ -333,11 +333,11 @@
                                 <label class="form-label" for="filled_by_name">
                                     ഫോം പൂരിപ്പിക്കുന്ന ആളുടെ പേര് <span class="required">*</span>
                                 </label>
-                                <input 
-                                    type="text" 
-                                    class="form-control @error('filled_by_name') is-invalid @enderror" 
-                                    id="filled_by_name" 
-                                    name="filled_by_name" 
+                                <input
+                                    type="text"
+                                    class="form-control @error('filled_by_name') is-invalid @enderror"
+                                    id="filled_by_name"
+                                    name="filled_by_name"
                                     value="{{ old('filled_by_name') }}"
                                     placeholder="പേര് നൽകുക"
                                     required
@@ -350,11 +350,11 @@
                                 <label class="form-label" for="filled_by_mobile">
                                     മൊബൈൽ <span class="required">*</span>
                                 </label>
-                                <input 
-                                    type="text" 
-                                    class="form-control @error('filled_by_mobile') is-invalid @enderror" 
-                                    id="filled_by_mobile" 
-                                    name="filled_by_mobile" 
+                                <input
+                                    type="text"
+                                    class="form-control @error('filled_by_mobile') is-invalid @enderror"
+                                    id="filled_by_mobile"
+                                    name="filled_by_mobile"
                                     value="{{ old('filled_by_mobile') }}"
                                     placeholder="മൊബൈൽ നമ്പർ നൽകുക"
                                     pattern="[0-9]{10}"
@@ -375,65 +375,143 @@
                     @foreach($districts as $districtKey => $districtName)
                     <div class="district-section">
                         <div class="district-header">{{ ucfirst($districtKey) }}</div>
-                        <div class="input-group">
-                            <div class="input-wrapper">
-                                <label class="form-label">സംഘടനയിലെ ഭാരവാഹിത്വം</label>
-                                <input 
-                                    type="text" 
-                                    class="form-control district-input" 
-                                    name="{{ $districtKey }}_position" 
-                                    id="{{ $districtKey }}_position"
-                                    value="{{ old($districtKey . '_position') }}"
-                                    placeholder="ഭാരവാഹിത്വം നൽകുക"
-                                >
-                            </div>
-                            <div class="input-wrapper">
-                                <label class="form-label">പേര്</label>
-                                <input 
-                                    type="text" 
-                                    class="form-control district-input" 
-                                    name="{{ $districtKey }}_name" 
-                                    id="{{ $districtKey }}_name"
-                                    value="{{ old($districtKey . '_name') }}"
-                                    placeholder="പേര് നൽകുക"
-                                >
-                            </div>
-                            <div class="input-wrapper">
-                                <label class="form-label">മൊബൈൽ</label>
-                                <input 
-                                    type="text" 
-                                    class="form-control district-input mobile-input" 
-                                    name="{{ $districtKey }}_phone" 
-                                    id="{{ $districtKey }}_phone"
-                                    value="{{ old($districtKey . '_phone') }}"
-                                    placeholder="മൊബൈൽ നമ്പർ നൽകുക"
-                                    pattern="[0-9]{10}"
-                                    title="ദയവായി 10 അക്കത്തിലുള്ള മൊബൈൽ നമ്പർ നൽകുക"
-                                    data-district="{{ $districtKey }}"
-                                >
-                            </div>
-                            <div class="input-wrapper">
-                                <label class="form-label">WhatsApp നമ്പർ</label>
-                                <input 
-                                    type="text" 
-                                    class="form-control district-input whatsapp-input" 
-                                    name="{{ $districtKey }}_whatsapp" 
-                                    id="{{ $districtKey }}_whatsapp"
-                                    value="{{ old($districtKey . '_whatsapp') }}"
-                                    placeholder="WhatsApp നമ്പർ നൽകുക"
-                                    pattern="[0-9]{10}"
-                                    title="ദയവായി 10 അക്കത്തിലുള്ള WhatsApp നമ്പർ നൽകുക"
-                                    data-district="{{ $districtKey }}"
-                                >
-                                <div class="checkbox-wrapper">
-                                    <input 
-                                        type="checkbox" 
-                                        id="{{ $districtKey }}_same_as_mobile" 
-                                        class="same-as-mobile-checkbox"
-                                        data-district="{{ $districtKey }}"
-                                        checked
+
+                        <!-- Coordinator 1 -->
+                        <div style="background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #667eea;">
+                            <h4 style="color: #667eea; font-size: 15px; font-weight: 600; margin-bottom: 15px;">Coordinator 1</h4>
+                            <div class="input-group">
+                                <div class="input-wrapper">
+                                    <label class="form-label">സംഘടനയിലെ ഭാരവാഹിത്വം</label>
+                                    <input
+                                        type="text"
+                                        class="form-control district-input"
+                                        name="{{ $districtKey }}_coordinator1_position"
+                                        id="{{ $districtKey }}_coordinator1_position"
+                                        value="{{ old($districtKey . '_coordinator1_position') }}"
+                                        placeholder="ഭാരവാഹിത്വം നൽകുക"
                                     >
-                                    <label for="{{ $districtKey }}_same_as_mobile">Same as mobile</label>
+                                </div>
+                                <div class="input-wrapper">
+                                    <label class="form-label">പേര്</label>
+                                    <input
+                                        type="text"
+                                        class="form-control district-input"
+                                        name="{{ $districtKey }}_coordinator1_name"
+                                        id="{{ $districtKey }}_coordinator1_name"
+                                        value="{{ old($districtKey . '_coordinator1_name') }}"
+                                        placeholder="പേര് നൽകുക"
+                                    >
+                                </div>
+                                <div class="input-wrapper">
+                                    <label class="form-label">മൊബൈൽ</label>
+                                    <input
+                                        type="text"
+                                        class="form-control district-input mobile-input"
+                                        name="{{ $districtKey }}_coordinator1_phone"
+                                        id="{{ $districtKey }}_coordinator1_phone"
+                                        value="{{ old($districtKey . '_coordinator1_phone') }}"
+                                        placeholder="മൊബൈൽ നമ്പർ നൽകുക"
+                                        pattern="[0-9]{10}"
+                                        title="ദയവായി 10 അക്കത്തിലുള്ള മൊബൈൽ നമ്പർ നൽകുക"
+                                        data-district="{{ $districtKey }}"
+                                        data-coordinator="1"
+                                    >
+                                </div>
+                                <div class="input-wrapper">
+                                    <label class="form-label">WhatsApp നമ്പർ</label>
+                                    <input
+                                        type="text"
+                                        class="form-control district-input whatsapp-input"
+                                        name="{{ $districtKey }}_coordinator1_whatsapp"
+                                        id="{{ $districtKey }}_coordinator1_whatsapp"
+                                        value="{{ old($districtKey . '_coordinator1_whatsapp') }}"
+                                        placeholder="WhatsApp നമ്പർ നൽകുക"
+                                        pattern="[0-9]{10}"
+                                        title="ദയവായി 10 അക്കത്തിലുള്ള WhatsApp നമ്പർ നൽകുക"
+                                        data-district="{{ $districtKey }}"
+                                        data-coordinator="1"
+                                    >
+                                    <div class="checkbox-wrapper">
+                                        <input
+                                            type="checkbox"
+                                            id="{{ $districtKey }}_coordinator1_same_as_mobile"
+                                            class="same-as-mobile-checkbox"
+                                            data-district="{{ $districtKey }}"
+                                            data-coordinator="1"
+                                            checked
+                                        >
+                                        <label for="{{ $districtKey }}_coordinator1_same_as_mobile">Same as mobile</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coordinator 2 -->
+                        <div style="background: #fff; padding: 15px; border-radius: 8px; border-left: 4px solid #764ba2;">
+                            <h4 style="color: #764ba2; font-size: 15px; font-weight: 600; margin-bottom: 15px;">Coordinator 2</h4>
+                            <div class="input-group">
+                                <div class="input-wrapper">
+                                    <label class="form-label">സംഘടനയിലെ ഭാരവാഹിത്വം</label>
+                                    <input
+                                        type="text"
+                                        class="form-control district-input"
+                                        name="{{ $districtKey }}_coordinator2_position"
+                                        id="{{ $districtKey }}_coordinator2_position"
+                                        value="{{ old($districtKey . '_coordinator2_position') }}"
+                                        placeholder="ഭാരവാഹിത്വം നൽകുക"
+                                    >
+                                </div>
+                                <div class="input-wrapper">
+                                    <label class="form-label">പേര്</label>
+                                    <input
+                                        type="text"
+                                        class="form-control district-input"
+                                        name="{{ $districtKey }}_coordinator2_name"
+                                        id="{{ $districtKey }}_coordinator2_name"
+                                        value="{{ old($districtKey . '_coordinator2_name') }}"
+                                        placeholder="പേര് നൽകുക"
+                                    >
+                                </div>
+                                <div class="input-wrapper">
+                                    <label class="form-label">മൊബൈൽ</label>
+                                    <input
+                                        type="text"
+                                        class="form-control district-input mobile-input"
+                                        name="{{ $districtKey }}_coordinator2_phone"
+                                        id="{{ $districtKey }}_coordinator2_phone"
+                                        value="{{ old($districtKey . '_coordinator2_phone') }}"
+                                        placeholder="മൊബൈൽ നമ്പർ നൽകുക"
+                                        pattern="[0-9]{10}"
+                                        title="ദയവായി 10 അക്കത്തിലുള്ള മൊബൈൽ നമ്പർ നൽകുക"
+                                        data-district="{{ $districtKey }}"
+                                        data-coordinator="2"
+                                    >
+                                </div>
+                                <div class="input-wrapper">
+                                    <label class="form-label">WhatsApp നമ്പർ</label>
+                                    <input
+                                        type="text"
+                                        class="form-control district-input whatsapp-input"
+                                        name="{{ $districtKey }}_coordinator2_whatsapp"
+                                        id="{{ $districtKey }}_coordinator2_whatsapp"
+                                        value="{{ old($districtKey . '_coordinator2_whatsapp') }}"
+                                        placeholder="WhatsApp നമ്പർ നൽകുക"
+                                        pattern="[0-9]{10}"
+                                        title="ദയവായി 10 അക്കത്തിലുള്ള WhatsApp നമ്പർ നൽകുക"
+                                        data-district="{{ $districtKey }}"
+                                        data-coordinator="2"
+                                    >
+                                    <div class="checkbox-wrapper">
+                                        <input
+                                            type="checkbox"
+                                            id="{{ $districtKey }}_coordinator2_same_as_mobile"
+                                            class="same-as-mobile-checkbox"
+                                            data-district="{{ $districtKey }}"
+                                            data-coordinator="2"
+                                            checked
+                                        >
+                                        <label for="{{ $districtKey }}_coordinator2_same_as_mobile">Same as mobile</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -447,7 +525,7 @@
             </div>
 
             <div class="form-footer">
-                {{-- സംഘടനയുടെ പേര് തിരഞ്ഞെടുക്കുമ്പോൾ മുമ്പ് നൽകിയ ഡാറ്റ യാന്ത്രികമായി ലോഡ് ചെയ്യപ്പെടും --}}
+                സംഘടനയുടെ പേര് തിരഞ്ഞെടുക്കുമ്പോൾ മുമ്പ് നൽകിയ ഡാറ്റ യാന്ത്രികമായി ലോഡ് ചെയ്യപ്പെടും
             </div>
         </div>
     </div>
@@ -463,19 +541,20 @@
 
             // Handle same as mobile checkboxes
             const sameAsMobileCheckboxes = document.querySelectorAll('.same-as-mobile-checkbox');
-            
+
             sameAsMobileCheckboxes.forEach(checkbox => {
                 const district = checkbox.dataset.district;
-                const mobileInput = document.getElementById(`${district}_phone`);
-                const whatsappInput = document.getElementById(`${district}_whatsapp`);
-                
+                const coordinator = checkbox.dataset.coordinator;
+                const mobileInput = document.getElementById(`${district}_coordinator${coordinator}_phone`);
+                const whatsappInput = document.getElementById(`${district}_coordinator${coordinator}_whatsapp`);
+
                 // Initialize - copy mobile to whatsapp on load if checkbox is checked
                 if (checkbox.checked && mobileInput.value) {
                     whatsappInput.value = mobileInput.value;
                     whatsappInput.readOnly = true;
                     whatsappInput.style.backgroundColor = '#e2e8f0';
                 }
-                
+
                 // Handle checkbox change
                 checkbox.addEventListener('change', function() {
                     if (this.checked) {
@@ -487,7 +566,7 @@
                         whatsappInput.style.backgroundColor = '#f7fafc';
                     }
                 });
-                
+
                 // Handle mobile input change - auto update whatsapp if checkbox is checked
                 mobileInput.addEventListener('input', function() {
                     if (checkbox.checked) {
@@ -499,7 +578,7 @@
             // Handle "Others" option
             organizationSelect.addEventListener('change', function() {
                 const selectedValue = this.value;
-                
+
                 if (selectedValue === 'Others') {
                     otherOrganizationGroup.style.display = 'block';
                     otherOrganizationInput.required = true;
@@ -509,7 +588,7 @@
                     otherOrganizationGroup.style.display = 'none';
                     otherOrganizationInput.required = false;
                     otherOrganizationInput.value = '';
-                    
+
                     // Update heading with selected organization name
                     if (selectedValue) {
                         mainHeading.textContent = selectedValue + ' - ജില്ലാ പ്രതിനിധി ടീം';
@@ -541,7 +620,7 @@
                 .then(response => response.json())
                 .then(data => {
                     loadingMessage.classList.remove('active');
-                    
+
                     if (data.success && data.data) {
                         // Populate all district fields
                         const districts = [
@@ -551,28 +630,53 @@
                         ];
 
                         districts.forEach(district => {
-                            const positionInput = document.getElementById(`${district}_position`);
-                            const nameInput = document.getElementById(`${district}_name`);
-                            const phoneInput = document.getElementById(`${district}_phone`);
-                            const whatsappInput = document.getElementById(`${district}_whatsapp`);
-                            const sameAsMobileCheckbox = document.getElementById(`${district}_same_as_mobile`);
-                            
-                            if (positionInput && data.data[`${district}_position`]) {
-                                positionInput.value = data.data[`${district}_position`];
+                            // Coordinator 1
+                            const c1_positionInput = document.getElementById(`${district}_coordinator1_position`);
+                            const c1_nameInput = document.getElementById(`${district}_coordinator1_name`);
+                            const c1_phoneInput = document.getElementById(`${district}_coordinator1_phone`);
+                            const c1_whatsappInput = document.getElementById(`${district}_coordinator1_whatsapp`);
+                            const c1_sameAsMobileCheckbox = document.getElementById(`${district}_coordinator1_same_as_mobile`);
+
+                            if (c1_positionInput && data.data[`${district}_coordinator1_position`]) {
+                                c1_positionInput.value = data.data[`${district}_coordinator1_position`];
                             }
-                            if (nameInput && data.data[`${district}_name`]) {
-                                nameInput.value = data.data[`${district}_name`];
+                            if (c1_nameInput && data.data[`${district}_coordinator1_name`]) {
+                                c1_nameInput.value = data.data[`${district}_coordinator1_name`];
                             }
-                            if (phoneInput && data.data[`${district}_phone`]) {
-                                phoneInput.value = data.data[`${district}_phone`];
+                            if (c1_phoneInput && data.data[`${district}_coordinator1_phone`]) {
+                                c1_phoneInput.value = data.data[`${district}_coordinator1_phone`];
                             }
-                            if (whatsappInput && data.data[`${district}_whatsapp`]) {
-                                whatsappInput.value = data.data[`${district}_whatsapp`];
-                                // If whatsapp is different from phone, uncheck the checkbox
-                                if (data.data[`${district}_whatsapp`] !== data.data[`${district}_phone`]) {
-                                    sameAsMobileCheckbox.checked = false;
-                                    whatsappInput.readOnly = false;
-                                    whatsappInput.style.backgroundColor = '#f7fafc';
+                            if (c1_whatsappInput && data.data[`${district}_coordinator1_whatsapp`]) {
+                                c1_whatsappInput.value = data.data[`${district}_coordinator1_whatsapp`];
+                                if (data.data[`${district}_coordinator1_whatsapp`] !== data.data[`${district}_coordinator1_phone`]) {
+                                    c1_sameAsMobileCheckbox.checked = false;
+                                    c1_whatsappInput.readOnly = false;
+                                    c1_whatsappInput.style.backgroundColor = '#f7fafc';
+                                }
+                            }
+
+                            // Coordinator 2
+                            const c2_positionInput = document.getElementById(`${district}_coordinator2_position`);
+                            const c2_nameInput = document.getElementById(`${district}_coordinator2_name`);
+                            const c2_phoneInput = document.getElementById(`${district}_coordinator2_phone`);
+                            const c2_whatsappInput = document.getElementById(`${district}_coordinator2_whatsapp`);
+                            const c2_sameAsMobileCheckbox = document.getElementById(`${district}_coordinator2_same_as_mobile`);
+
+                            if (c2_positionInput && data.data[`${district}_coordinator2_position`]) {
+                                c2_positionInput.value = data.data[`${district}_coordinator2_position`];
+                            }
+                            if (c2_nameInput && data.data[`${district}_coordinator2_name`]) {
+                                c2_nameInput.value = data.data[`${district}_coordinator2_name`];
+                            }
+                            if (c2_phoneInput && data.data[`${district}_coordinator2_phone`]) {
+                                c2_phoneInput.value = data.data[`${district}_coordinator2_phone`];
+                            }
+                            if (c2_whatsappInput && data.data[`${district}_coordinator2_whatsapp`]) {
+                                c2_whatsappInput.value = data.data[`${district}_coordinator2_whatsapp`];
+                                if (data.data[`${district}_coordinator2_whatsapp`] !== data.data[`${district}_coordinator2_phone`]) {
+                                    c2_sameAsMobileCheckbox.checked = false;
+                                    c2_whatsappInput.readOnly = false;
+                                    c2_whatsappInput.style.backgroundColor = '#f7fafc';
                                 }
                             }
                         });

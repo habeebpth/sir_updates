@@ -13,95 +13,151 @@ return new class extends Migration
     {
         Schema::create('organization_representatives', function (Blueprint $table) {
             $table->id();
-            $table->string('organization_name')->unique();
-            $table->string('other_organization_name')->nullable();
-            $table->string('filled_by_name');
-            $table->string('filled_by_mobile');
-            
+            $table->string('organization_name', 100)->unique();
+            $table->string('other_organization_name', 100)->nullable();
+            $table->string('filled_by_name', 100);
+            $table->string('filled_by_mobile', 15);
+
             // Thiruvananthapuram
-            $table->string('thiruvananthapuram_position')->nullable();
-            $table->string('thiruvananthapuram_name')->nullable();
-            $table->string('thiruvananthapuram_phone')->nullable();
-            $table->string('thiruvananthapuram_whatsapp')->nullable();
-            
+            $table->string('thiruvananthapuram_coordinator1_position', 100)->nullable();
+            $table->string('thiruvananthapuram_coordinator1_name', 100)->nullable();
+            $table->string('thiruvananthapuram_coordinator1_phone', 15)->nullable();
+            $table->string('thiruvananthapuram_coordinator1_whatsapp', 15)->nullable();
+            $table->string('thiruvananthapuram_coordinator2_position', 100)->nullable();
+            $table->string('thiruvananthapuram_coordinator2_name', 100)->nullable();
+            $table->string('thiruvananthapuram_coordinator2_phone', 15)->nullable();
+            $table->string('thiruvananthapuram_coordinator2_whatsapp', 15)->nullable();
+
             // Kollam
-            $table->string('kollam_position')->nullable();
-            $table->string('kollam_name')->nullable();
-            $table->string('kollam_phone')->nullable();
-            $table->string('kollam_whatsapp')->nullable();
-            
+            $table->string('kollam_coordinator1_position', 100)->nullable();
+            $table->string('kollam_coordinator1_name', 100)->nullable();
+            $table->string('kollam_coordinator1_phone', 15)->nullable();
+            $table->string('kollam_coordinator1_whatsapp', 15)->nullable();
+            $table->string('kollam_coordinator2_position', 100)->nullable();
+            $table->string('kollam_coordinator2_name', 100)->nullable();
+            $table->string('kollam_coordinator2_phone', 15)->nullable();
+            $table->string('kollam_coordinator2_whatsapp', 15)->nullable();
+
             // Pathanamthitta
-            $table->string('pathanamthitta_position')->nullable();
-            $table->string('pathanamthitta_name')->nullable();
-            $table->string('pathanamthitta_phone')->nullable();
-            $table->string('pathanamthitta_whatsapp')->nullable();
-            
+            $table->string('pathanamthitta_coordinator1_position', 100)->nullable();
+            $table->string('pathanamthitta_coordinator1_name', 100)->nullable();
+            $table->string('pathanamthitta_coordinator1_phone', 15)->nullable();
+            $table->string('pathanamthitta_coordinator1_whatsapp', 15)->nullable();
+            $table->string('pathanamthitta_coordinator2_position', 100)->nullable();
+            $table->string('pathanamthitta_coordinator2_name', 100)->nullable();
+            $table->string('pathanamthitta_coordinator2_phone', 15)->nullable();
+            $table->string('pathanamthitta_coordinator2_whatsapp', 15)->nullable();
+
             // Alappuzha
-            $table->string('alappuzha_position')->nullable();
-            $table->string('alappuzha_name')->nullable();
-            $table->string('alappuzha_phone')->nullable();
-            $table->string('alappuzha_whatsapp')->nullable();
-            
+            $table->string('alappuzha_coordinator1_position', 100)->nullable();
+            $table->string('alappuzha_coordinator1_name', 100)->nullable();
+            $table->string('alappuzha_coordinator1_phone', 15)->nullable();
+            $table->string('alappuzha_coordinator1_whatsapp', 15)->nullable();
+            $table->string('alappuzha_coordinator2_position', 100)->nullable();
+            $table->string('alappuzha_coordinator2_name', 100)->nullable();
+            $table->string('alappuzha_coordinator2_phone', 15)->nullable();
+            $table->string('alappuzha_coordinator2_whatsapp', 15)->nullable();
+
             // Kottayam
-            $table->string('kottayam_position')->nullable();
-            $table->string('kottayam_name')->nullable();
-            $table->string('kottayam_phone')->nullable();
-            $table->string('kottayam_whatsapp')->nullable();
-            
+            $table->string('kottayam_coordinator1_position', 100)->nullable();
+            $table->string('kottayam_coordinator1_name', 100)->nullable();
+            $table->string('kottayam_coordinator1_phone', 15)->nullable();
+            $table->string('kottayam_coordinator1_whatsapp', 15)->nullable();
+            $table->string('kottayam_coordinator2_position', 100)->nullable();
+            $table->string('kottayam_coordinator2_name', 100)->nullable();
+            $table->string('kottayam_coordinator2_phone', 15)->nullable();
+            $table->string('kottayam_coordinator2_whatsapp', 15)->nullable();
+
             // Idukki
-            $table->string('idukki_position')->nullable();
-            $table->string('idukki_name')->nullable();
-            $table->string('idukki_phone')->nullable();
-            $table->string('idukki_whatsapp')->nullable();
-            
+            $table->string('idukki_coordinator1_position', 100)->nullable();
+            $table->string('idukki_coordinator1_name', 100)->nullable();
+            $table->string('idukki_coordinator1_phone', 15)->nullable();
+            $table->string('idukki_coordinator1_whatsapp', 15)->nullable();
+            $table->string('idukki_coordinator2_position', 100)->nullable();
+            $table->string('idukki_coordinator2_name', 100)->nullable();
+            $table->string('idukki_coordinator2_phone', 15)->nullable();
+            $table->string('idukki_coordinator2_whatsapp', 15)->nullable();
+
             // Ernakulam
-            $table->string('ernakulam_position')->nullable();
-            $table->string('ernakulam_name')->nullable();
-            $table->string('ernakulam_phone')->nullable();
-            $table->string('ernakulam_whatsapp')->nullable();
-            
+            $table->string('ernakulam_coordinator1_position', 100)->nullable();
+            $table->string('ernakulam_coordinator1_name', 100)->nullable();
+            $table->string('ernakulam_coordinator1_phone', 15)->nullable();
+            $table->string('ernakulam_coordinator1_whatsapp', 15)->nullable();
+            $table->string('ernakulam_coordinator2_position', 100)->nullable();
+            $table->string('ernakulam_coordinator2_name', 100)->nullable();
+            $table->string('ernakulam_coordinator2_phone', 15)->nullable();
+            $table->string('ernakulam_coordinator2_whatsapp', 15)->nullable();
+
             // Thrissur
-            $table->string('thrissur_position')->nullable();
-            $table->string('thrissur_name')->nullable();
-            $table->string('thrissur_phone')->nullable();
-            $table->string('thrissur_whatsapp')->nullable();
-            
+            $table->string('thrissur_coordinator1_position', 100)->nullable();
+            $table->string('thrissur_coordinator1_name', 100)->nullable();
+            $table->string('thrissur_coordinator1_phone', 15)->nullable();
+            $table->string('thrissur_coordinator1_whatsapp', 15)->nullable();
+            $table->string('thrissur_coordinator2_position', 100)->nullable();
+            $table->string('thrissur_coordinator2_name', 100)->nullable();
+            $table->string('thrissur_coordinator2_phone', 15)->nullable();
+            $table->string('thrissur_coordinator2_whatsapp', 15)->nullable();
+
             // Palakkad
-            $table->string('palakkad_position')->nullable();
-            $table->string('palakkad_name')->nullable();
-            $table->string('palakkad_phone')->nullable();
-            $table->string('palakkad_whatsapp')->nullable();
-            
+            $table->string('palakkad_coordinator1_position', 100)->nullable();
+            $table->string('palakkad_coordinator1_name', 100)->nullable();
+            $table->string('palakkad_coordinator1_phone', 15)->nullable();
+            $table->string('palakkad_coordinator1_whatsapp', 15)->nullable();
+            $table->string('palakkad_coordinator2_position', 100)->nullable();
+            $table->string('palakkad_coordinator2_name', 100)->nullable();
+            $table->string('palakkad_coordinator2_phone', 15)->nullable();
+            $table->string('palakkad_coordinator2_whatsapp', 15)->nullable();
+
             // Malappuram
-            $table->string('malappuram_position')->nullable();
-            $table->string('malappuram_name')->nullable();
-            $table->string('malappuram_phone')->nullable();
-            $table->string('malappuram_whatsapp')->nullable();
-            
+            $table->string('malappuram_coordinator1_position', 100)->nullable();
+            $table->string('malappuram_coordinator1_name', 100)->nullable();
+            $table->string('malappuram_coordinator1_phone', 15)->nullable();
+            $table->string('malappuram_coordinator1_whatsapp', 15)->nullable();
+            $table->string('malappuram_coordinator2_position', 100)->nullable();
+            $table->string('malappuram_coordinator2_name', 100)->nullable();
+            $table->string('malappuram_coordinator2_phone', 15)->nullable();
+            $table->string('malappuram_coordinator2_whatsapp', 15)->nullable();
+
             // Kozhikode
-            $table->string('kozhikode_position')->nullable();
-            $table->string('kozhikode_name')->nullable();
-            $table->string('kozhikode_phone')->nullable();
-            $table->string('kozhikode_whatsapp')->nullable();
-            
+            $table->string('kozhikode_coordinator1_position', 100)->nullable();
+            $table->string('kozhikode_coordinator1_name', 100)->nullable();
+            $table->string('kozhikode_coordinator1_phone', 15)->nullable();
+            $table->string('kozhikode_coordinator1_whatsapp', 15)->nullable();
+            $table->string('kozhikode_coordinator2_position', 100)->nullable();
+            $table->string('kozhikode_coordinator2_name', 100)->nullable();
+            $table->string('kozhikode_coordinator2_phone', 15)->nullable();
+            $table->string('kozhikode_coordinator2_whatsapp', 15)->nullable();
+
             // Wayanad
-            $table->string('wayanad_position')->nullable();
-            $table->string('wayanad_name')->nullable();
-            $table->string('wayanad_phone')->nullable();
-            $table->string('wayanad_whatsapp')->nullable();
-            
+            $table->string('wayanad_coordinator1_position', 100)->nullable();
+            $table->string('wayanad_coordinator1_name', 100)->nullable();
+            $table->string('wayanad_coordinator1_phone', 15)->nullable();
+            $table->string('wayanad_coordinator1_whatsapp', 15)->nullable();
+            $table->string('wayanad_coordinator2_position', 100)->nullable();
+            $table->string('wayanad_coordinator2_name', 100)->nullable();
+            $table->string('wayanad_coordinator2_phone', 15)->nullable();
+            $table->string('wayanad_coordinator2_whatsapp', 15)->nullable();
+
             // Kannur
-            $table->string('kannur_position')->nullable();
-            $table->string('kannur_name')->nullable();
-            $table->string('kannur_phone')->nullable();
-            $table->string('kannur_whatsapp')->nullable();
-            
+            $table->string('kannur_coordinator1_position', 100)->nullable();
+            $table->string('kannur_coordinator1_name', 100)->nullable();
+            $table->string('kannur_coordinator1_phone', 15)->nullable();
+            $table->string('kannur_coordinator1_whatsapp', 15)->nullable();
+            $table->string('kannur_coordinator2_position', 100)->nullable();
+            $table->string('kannur_coordinator2_name', 100)->nullable();
+            $table->string('kannur_coordinator2_phone', 15)->nullable();
+            $table->string('kannur_coordinator2_whatsapp', 15)->nullable();
+
             // Kasaragod
-            $table->string('kasaragod_position')->nullable();
-            $table->string('kasaragod_name')->nullable();
-            $table->string('kasaragod_phone')->nullable();
-            $table->string('kasaragod_whatsapp')->nullable();
-            
+            $table->string('kasaragod_coordinator1_position', 100)->nullable();
+            $table->string('kasaragod_coordinator1_name', 100)->nullable();
+            $table->string('kasaragod_coordinator1_phone', 15)->nullable();
+            $table->string('kasaragod_coordinator1_whatsapp', 15)->nullable();
+            $table->string('kasaragod_coordinator2_position', 100)->nullable();
+            $table->string('kasaragod_coordinator2_name', 100)->nullable();
+            $table->string('kasaragod_coordinator2_phone', 15)->nullable();
+            $table->string('kasaragod_coordinator2_whatsapp', 15)->nullable();
+
             $table->timestamps();
         });
     }
