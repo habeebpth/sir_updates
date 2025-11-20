@@ -140,3 +140,20 @@ Route::get('/api/organization-representative/{organizationName}', [OrganizationR
 Route::get('/data_collection', function () {
     return view('data_collection_form');
 })->name('data.collection.form');
+
+
+
+Route::get('/faqs', 'App\Http\Controllers\FaqController@index')->name('faq.index');
+
+// Admin FAQ routes (protected by auth and admin middleware)
+Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->middleware(['auth', 'admin'])->group(function () {
+    Route::prefix('faq')->namespace('Faq')->group(function () {
+        Route::get('/', 'IndexController')->name('admin.faq.index');
+        Route::get('/create', 'CreateController')->name('admin.faq.create');
+        Route::post('/', 'StoreController')->name('admin.faq.store');
+        Route::get('/{faq}', 'ShowController')->name('admin.faq.show');
+        Route::get('/{faq}/edit', 'EditController')->name('admin.faq.edit');
+        Route::patch('/{faq}', 'UpdateController')->name('admin.faq.update');
+        Route::delete('/{faq}', 'DeleteController')->name('admin.faq.delete');
+    });
+});

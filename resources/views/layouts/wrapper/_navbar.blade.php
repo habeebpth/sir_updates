@@ -19,6 +19,12 @@
                         <ul class="dropdown-menu dropdown-menu-end shadow-lg rounded-3">
                             <li>
                                 <a class="dropdown-item d-flex align-items-center gap-2"
+                                    href="{{ route('admin.main.index') }}">
+                                    <i class="bi bi-person"></i> Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center gap-2"
                                     href="{{ route('personal.main.index') }}">
                                     <i class="bi bi-person"></i> Profile
                                 </a>
@@ -51,6 +57,9 @@
             <a class="nav-item nav-link link-body-emphasis" href="{{ route('main.index') }}">Home</a>
             <a class="nav-item nav-link link-body-emphasis" href="{{ route('about.index') }}">About</a>
             <a class="nav-item nav-link link-body-emphasis" href="{{ route('contact.index') }}">Contact</a>
+            <li class="nav-item">
+    <a class="nav-link" href="{{ route('faq.index') }}">FAQs</a>
+</li>
         </nav>
     </div>
 </div>
