@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\PosterController;
 use App\Http\Controllers\PlaceholderController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
@@ -28,9 +28,9 @@ Route::get('/placeholder/{width}/{height}', [PlaceholderController::class, 'gene
 
 Auth::routes(['verify' => false]);
 
-Route::prefix('contacts')->group(function () {
-    Route::get('/', [ContactsController::class, 'showContacts'])
-        ->name('contact.index');
+Route::prefix('posters')->group(function () {
+    Route::get('/', [PosterController::class, 'index'])
+        ->name('poster.index');
 });
 
 Route::prefix('about')->group(function () {
