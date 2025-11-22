@@ -129,27 +129,20 @@
         position: relative;
         overflow: hidden;
         background-color: #f8f9fa;
-        height: auto;
-        aspect-ratio: 16 / 9;
+        height: 240px;
     }
 
     .post-image {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
         transition: transform 0.4s ease;
-        background-color: #f8f9fa;
     }
 
     @media (min-width: 768px) {
         .post-image-wrapper {
             height: 260px;
-            aspect-ratio: auto;
-        }
-
-        .post-image {
-            object-fit: cover;
         }
     }
 

@@ -5,13 +5,13 @@
     @if($posters->count() > 0)
     <!-- Posters List -->
     <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
+        <div class="col-12">
             <div class="list-group">
                 @foreach($posters as $poster)
                 <a href="{{ route('post.show', $poster->id) }}" class="list-group-item list-group-item-action poster-list-item border-0 mb-3 shadow-sm text-decoration-none">
-                    <div class="d-flex w-100 align-items-center gap-3">
+                    <div class="d-flex w-100 align-items-center gap-3 justify-content-start">
                         <i class="bi bi-file-earmark-text fs-4 text-primary d-none d-md-inline"></i>
-                        <h5 class="poster-list-title mb-0" style="font-family: 'Playfair Display', serif;">
+                        <h5 class="poster-list-title mb-0 flex-grow-1" style="font-family: 'Playfair Display', serif; text-align: left !important;">
                             {{ $poster->title }}
                         </h5>
                     </div>
@@ -77,6 +77,8 @@
         font-weight: 600;
         color: #1a202c;
         transition: color 0.3s ease;
+        text-align: left !important;
+        width: 100%;
     }
 
     .poster-list-item:hover .poster-list-title {
@@ -110,7 +112,7 @@
         }
 
         .poster-list-item .d-flex.w-100 {
-            flex-direction: column;
+            align-items: flex-start !important;
         }
 
         .poster-list-item .d-flex.gap-2 {
@@ -125,6 +127,7 @@
 
         .poster-list-title {
             font-size: 1.1rem;
+            text-align: left !important;
         }
     }
 

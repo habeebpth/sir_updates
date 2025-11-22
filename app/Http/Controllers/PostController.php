@@ -18,7 +18,7 @@ class PostController extends Controller
         /** @phpstan-ignore-next-line */
         $liked_posts = Post::withCount('likedUsers')->orderBy('liked_users_count', 'desc')->get()->take(3);
 
-        $sirPost = Post::orderBy('id', 'asc')->first();
+        $sirPost = Post::find(31) ?? Post::orderBy('id', 'asc')->first();
 
         // todo Show recent categories with their latest posts
 
