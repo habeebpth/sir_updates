@@ -4,57 +4,48 @@
 
 <div class="latest-posts-section">
     @if($posts->isNotEmpty())
-        <!-- Posts Grid -->
-        <div class="row g-3 g-md-4 mb-4">
+        <!-- Posts List -->
+        <div class="posts-list">
             @foreach($posts as $post)
-                <div class="col-12 col-md-6 col-lg-4">
-                    <article class="post-card h-100">
-                        <div class="card border-0 shadow-sm h-100 overflow-hidden">
+                <article class="post-list-item mb-3 mb-md-4">
+                    <a href="{{ route('post.show', $post->id) }}" class="card border-0 shadow-sm text-decoration-none d-block">
+                        <div class="row g-0">
                             <!-- Image -->
-                            <div class="post-image-wrapper">
-                                <img src="{{ $post->preview_image_url }}"
-                                     class="card-img-top post-image"
-                                     alt="{{ $post->title }}"
-                                     loading="lazy">
-                                <div class="post-overlay">
-                                    <a href="{{ route('post.show', $post->id) }}"
-                                       class="btn btn-light btn-sm rounded-pill">
-                                        <i class="bi bi-eye me-1"></i>View Post
-                                    </a>
+                            <div class="col-4 col-md-3">
+                                <div class="post-list-image-wrapper">
+                                    <img src="{{ $post->preview_image_url }}"
+                                         class="post-list-image"
+                                         alt="{{ $post->title }}"
+                                         loading="lazy">
                                 </div>
                             </div>
 
                             <!-- Content -->
-                            <div class="card-body d-flex flex-column p-3 p-md-4">
-                                <div class="mb-2">
-                                    <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill">
-                                        {{ $post->category->name ?? 'Uncategorized' }}
-                                    </span>
-                                </div>
+                            <div class="col-8 col-md-9">
+                                <div class="card-body p-3 p-md-4">
+                                    <div class="mb-2">
+                                        <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill small">
+                                            {{ $post->category->name ?? 'Uncategorized' }}
+                                        </span>
+                                    </div>
 
-                                <h3 class="post-title mb-3">
-                                    <a href="{{ route('post.show', $post->id) }}"
-                                       class="text-dark text-decoration-none">
+                                    <h3 class="post-list-title mb-2 mb-md-3 text-dark" style="font-family: 'Playfair Display', serif;">
                                         {{ $post->title }}
-                                    </a>
-                                </h3>
+                                    </h3>
 
-                                <div class="mb-3 text-muted small d-flex align-items-center gap-2 flex-wrap">
-                                    <span><i class="bi bi-calendar me-1"></i>{{ $post->created_at->format('M j, Y') }}</span>
-                                    <span class="d-none d-sm-inline">•</span>
-                                    <span class="d-none d-sm-inline"><i class="bi bi-clock me-1"></i>{{ $post->created_at->diffForHumans() }}</span>
+                                    <div class="mb-2 text-muted small d-flex align-items-center gap-2">
+                                        <i class="bi bi-calendar2"></i>
+                                        <span>{{ $post->created_at->format('M j, Y') }}</span>
+                                    </div>
+
+                                    <p class="card-text text-muted small mb-0 d-none d-md-block post-excerpt">
+                                        {{ $post->shortBody() }}
+                                    </p>
                                 </div>
-
-                                <p class="card-text mb-3 text-muted flex-grow-1">{{ $post->shortBody() }}</p>
-
-                                <a href="{{ route('post.show', $post->id) }}"
-                                   class="read-more-link align-self-start">
-                                    Continue reading <i class="bi bi-arrow-right ms-1"></i>
-                                </a>
                             </div>
                         </div>
-                    </article>
-                </div>
+                    </a>
+                </article>
             @endforeach
         </div>
 
@@ -75,64 +66,26 @@
 </div>
 
 <style>
-    /* Featured Post Styles */
-    .featured-post {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
-        border: none;
-        position: relative;
+    /* Post List Item Styles */
+    .post-list-item .card {
+        transition: all 0.3s ease;
+        border-radius: 0.75rem;
+        overflow: hidden;
     }
 
-    .featured-post::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #667eea, #764ba2);
+    .post-list-item .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
     }
 
-    .featured-title {
-        font-size: clamp(1.5rem, 4vw, 2.5rem);
-        line-height: 1.2;
-        transition: color 0.3s ease;
-    }
-
-    .featured-title:hover {
-        color: #667eea !important;
-    }
-
-    .featured-image {
-        max-height: 400px;
-        object-fit: cover;
-        width: 100%;
-    }
-
-    /* Post Card Styles */
-    .post-card {
-        transition: transform 0.3s ease;
-    }
-
-    .post-card:hover {
-        transform: translateY(-8px);
-    }
-
-    .post-card .card {
-        transition: box-shadow 0.3s ease;
-    }
-
-    .post-card:hover .card {
-        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
-    }
-
-    .post-image-wrapper {
-        position: relative;
+    .post-list-image-wrapper {
+        height: 100%;
+        min-height: 120px;
         overflow: hidden;
         background-color: #f8f9fa;
-        height: 240px;
     }
 
-    .post-image {
+    .post-list-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -140,102 +93,63 @@
         transition: transform 0.4s ease;
     }
 
-    @media (min-width: 768px) {
-        .post-image-wrapper {
-            height: 260px;
-        }
+    .post-list-item .card:hover .post-list-image {
+        transform: scale(1.1);
     }
 
-    @media (min-width: 992px) {
-        .post-image-wrapper {
-            height: 280px;
-        }
-    }
-
-    .post-card:hover .post-image {
-        transform: scale(1.05);
-    }
-
-    .post-card .card-body {
-        min-height: 300px;
-    }
-
-    @media (min-width: 768px) {
-        .post-card .card-body {
-            min-height: 320px;
-        }
-    }
-
-    .post-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .post-card:hover .post-overlay {
-        opacity: 1;
-    }
-
-    .post-title {
-        font-size: clamp(1.1rem, 2vw, 1.35rem);
-        font-family: 'Playfair Display', serif;
+    .post-list-title {
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
         font-weight: 600;
         line-height: 1.4;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-    }
-
-    .post-title a {
         transition: color 0.3s ease;
     }
 
-    .post-title a:hover {
+    .post-list-item .card:hover .post-list-title {
         color: #667eea !important;
     }
 
-    .card-text {
-        font-size: 0.95rem;
-        line-height: 1.6;
+    .post-excerpt {
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        line-height: 1.5;
     }
 
-    .read-more-link {
-        color: #667eea;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+        .post-list-image-wrapper {
+            min-height: 150px;
+        }
+
+        .post-list-title {
+            -webkit-line-clamp: 3;
+        }
     }
 
-    .read-more-link:hover {
-        color: #5568d3;
-        gap: 0.5rem;
-    }
+    @media (max-width: 575.98px) {
+        .post-list-image-wrapper {
+            min-height: 100px;
+        }
 
-    .read-more-link i {
-        transition: transform 0.3s ease;
-    }
-
-    .read-more-link:hover i {
-        transform: translateX(4px);
+        .post-list-item .card-body {
+            padding: 0.75rem !important;
+        }
     }
 
     /* Empty State */
+    .empty-state {
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     .empty-state i {
         display: block;
     }
@@ -265,41 +179,5 @@
         color: #fff;
         border-color: #667eea;
         transform: translateY(-2px);
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 767.98px) {
-        .featured-post {
-            padding: 1.5rem !important;
-        }
-
-        .featured-content .lead {
-            font-size: 1rem;
-        }
-
-        .card-body {
-            padding: 1rem !important;
-        }
-
-        .badge {
-            font-size: 0.7rem;
-        }
-
-        .post-title {
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem !important;
-        }
-
-        .card-text {
-            font-size: 0.875rem;
-            -webkit-line-clamp: 2;
-        }
-    }
-
-    /* Tablet Optimizations */
-    @media (min-width: 768px) and (max-width: 991.98px) {
-        .post-card .card-body {
-            padding: 1.25rem !important;
-        }
     }
 </style>
