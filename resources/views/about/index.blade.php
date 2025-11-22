@@ -24,7 +24,7 @@
                                 <i class="bi bi-info-circle me-2 text-primary"></i>Who We Are
                             </h3>
                             <p class="text-muted lh-lg">
-                                Welcome to <strong>sirupdates.com</strong> – your trusted source for the latest updates,
+                                Welcome to <strong>sirwatchkerala.com</strong> – your trusted source for the latest updates,
                                 insights, and information. We are committed to delivering high-quality content
                                 that keeps you informed and engaged.
                             </p>

@@ -19,18 +19,18 @@
                     @foreach($faqs as $index => $faq)
                         <div class="accordion-item mb-2 mb-md-3 border rounded shadow-sm">
                             <h2 class="accordion-header" id="heading{{ $faq->id }}">
-                                <button class="accordion-button {{ $index !== 0 ? '' : '' }} fw-semibold faq-question"
+                                <button class="accordion-button collapsed fw-semibold faq-question"
                                         type="button"
                                         data-bs-toggle="collapse"
                                         data-bs-target="#collapse{{ $faq->id }}"
-                                        aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
+                                        aria-expanded="false"
                                         aria-controls="collapse{{ $faq->id }}">
                                     <span class="faq-number">{{ $index + 1 }}</span>
                                     <span class="faq-question-text">{{ $faq->question }}</span>
                                 </button>
                             </h2>
                             <div id="collapse{{ $faq->id }}"
-                                 class="accordion-collapse collapse {{ $index === 0 ? '' : '' }}"
+                                 class="accordion-collapse collapse"
                                  aria-labelledby="heading{{ $faq->id }}"
                                  data-bs-parent="#faqAccordion">
                                 <div class="accordion-body faq-answer">
