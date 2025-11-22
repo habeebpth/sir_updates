@@ -1,74 +1,24 @@
 <div class="mt-auto">
     <footer class="bg-dark-gradient py-5">
         <div class="container">
-            <div class="row g-4">
+            <div class="row g-4 justify-content-center">
                 <!-- Brand Section -->
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 text-center">
                     <div class="mb-4">
                         <h3 class="fs-3 fw-bold text-white mb-2" style="font-family: 'Playfair Display', serif;">
-                            SIR Updates
+                            SIR Watch Kerala
                         </h3>
                         <p class="text-secondary mb-0">
                             Stay informed with the latest updates and insights.
                         </p>
                     </div>
                 </div>
-
-                <!-- Navigation Section -->
-                <div class="col-6 col-md-3 col-lg-2">
-                    <h5 class="text-white mb-3 fw-semibold">Navigation</h5>
-                    <ul class="nav flex-column gap-2">
-                        <li class="nav-item">
-                            <a href="{{ route('main.index') }}" class="nav-link p-0 link-light link-offset-2 footer-link">
-                                <i class="bi bi-house-door me-1"></i>Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('about.index') }}" class="nav-link p-0 link-light link-offset-2 footer-link">
-                                <i class="bi bi-info-circle me-1"></i>About
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('poster.index') }}" class="nav-link p-0 link-light link-offset-2 footer-link">
-                                <i class="bi bi-file-earmark-image me-1"></i>Posters
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Social Section -->
-                <div class="col-6 col-md-3 col-lg-2">
-                    <h5 class="text-white mb-3 fw-semibold">Social</h5>
-                    <ul class="nav flex-column gap-2">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link p-0 link-light link-offset-2 footer-link"
-                               target="_blank" rel="noopener noreferrer">
-                                <i class="bi bi-github me-1"></i>GitHub
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link p-0 link-light link-offset-2 footer-link"
-                               target="_blank" rel="noopener noreferrer">
-                                <i class="bi bi-linkedin me-1"></i>LinkedIn
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link p-0 link-light link-offset-2 footer-link"
-                               target="_blank" rel="noopener noreferrer">
-                                <i class="bi bi-twitter-x me-1"></i>Twitter
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Extra Space for larger screens -->
-                <div class="col-lg-4 d-none d-lg-block"></div>
             </div>
 
             <!-- Footer Bottom -->
             <div class="border-top border-secondary pt-4 mt-4">
                 <div class="row align-items-center">
-                    <div class="col-12 col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <div class="col-12 text-center">
                         <p class="text-secondary mb-0">
                             © {{ date('Y') }} IT Wing. All rights reserved.
                         </p>
@@ -78,37 +28,6 @@
         </div>
     </footer>
 </div>
-
-<!-- Mobile App-like Bottom Navigation -->
-<nav class="bottom-nav">
-    <div class="container-fluid px-2">
-        <div class="d-flex justify-content-around align-items-center">
-            <!-- Home -->
-            <a href="{{ route('main.index') }}"
-               class="nav-item-btn {{ Request::routeIs('main.index') ? 'active' : '' }}"
-               aria-label="Home">
-                <i class="bi bi-house-door-fill"></i>
-                <span>Home</span>
-            </a>
-
-            <!-- FAQs -->
-            <a href="{{ route('faq.index') }}"
-               class="nav-item-btn {{ Request::routeIs('faq.index') ? 'active' : '' }}"
-               aria-label="FAQs">
-                <i class="bi bi-question-circle-fill"></i>
-                <span>FAQs</span>
-            </a>
-
-            <!-- Contact -->
-            <a href="{{ route('contact.index') }}"
-               class="nav-item-btn {{ Request::routeIs('contact.index') ? 'active' : '' }}"
-               aria-label="Contact">
-                <i class="bi bi-envelope-fill"></i>
-                <span>Contact</span>
-            </a>
-        </div>
-    </div>
-</nav>
 
 <style>
     .bg-dark-gradient {
