@@ -14,7 +14,15 @@
         <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap"
                 rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NCQ18XVGY2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-NCQ18XVGY2');
+</script>
         @stack('styles')
 </head>
 
