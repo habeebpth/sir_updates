@@ -19,22 +19,23 @@
                     @foreach($faqs as $index => $faq)
                         <div class="accordion-item mb-2 mb-md-3 border rounded shadow-sm">
                             <h2 class="accordion-header" id="heading{{ $faq->id }}">
-                                <button class="accordion-button {{ $index !== 0 ? 'collapsed' : '' }} fw-semibold faq-question"
+                                <button class="accordion-button {{ $index !== 0 ? '' : '' }} fw-semibold faq-question"
                                         type="button"
                                         data-bs-toggle="collapse"
                                         data-bs-target="#collapse{{ $faq->id }}"
                                         aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
                                         aria-controls="collapse{{ $faq->id }}">
-                                    <i class="bi bi-question-circle me-2 flex-shrink-0"></i>
-                                    <span>{{ $faq->question }}</span>
+                                    <span class="faq-number">{{ $index + 1 }}</span>
+                                    <span class="faq-question-text">{{ $faq->question }}</span>
                                 </button>
                             </h2>
                             <div id="collapse{{ $faq->id }}"
-                                 class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
+                                 class="accordion-collapse collapse {{ $index === 0 ? '' : '' }}"
                                  aria-labelledby="heading{{ $faq->id }}"
                                  data-bs-parent="#faqAccordion">
                                 <div class="accordion-body faq-answer">
-                                    <p class="mb-0">{!! nl2br(e($faq->answer)) !!}</p>
+                                    {{-- <p class="mb-0">{!! nl2br(e($faq->answer)) !!}</p> --}}
+                                    <p class="mb-0">{!! $faq->answer !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -67,6 +68,36 @@
         color: #2c3e50;
     }
 
+    /* FAQ Number Badge Styling */
+    .faq-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-right: 1rem;
+        flex-shrink: 0;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .accordion-button:not(.collapsed) .faq-number {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .faq-question-text {
+        flex: 1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
     /* Mobile Responsive Styles */
     @media (max-width: 767.98px) {
         .faq-title {
@@ -97,12 +128,38 @@
             font-size: 0.9rem;
             padding: 1rem;
         }
+
+        .faq-number {
+            min-width: 30px;
+            height: 30px;
+            font-size: 0.875rem;
+            margin-right: 0.75rem;
+            border-radius: 8px;
+        }
     }
 
     /* Tablet Responsive Styles */
     @media (min-width: 768px) and (max-width: 991.98px) {
         .faq-title {
             font-size: 1.75rem;
+        }
+
+        .faq-number {
+            min-width: 34px;
+            height: 34px;
+            font-size: 0.95rem;
+            margin-right: 0.875rem;
+        }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 575.98px) {
+        .faq-number {
+            min-width: 28px;
+            height: 28px;
+            font-size: 0.8rem;
+            margin-right: 0.6rem;
+            border-radius: 7px;
         }
     }
 
@@ -119,35 +176,25 @@
 
     .accordion-item {
         border: 1px solid rgba(0,0,0,.125);
+        transition: all 0.3s ease;
+    }
+
+    .accordion-item:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,.1) !important;
+        transform: translateY(-2px);
     }
 
     .accordion-button {
         padding: 1.25rem 1.5rem;
         text-align: left;
+        display: flex;
+        align-items: center;
     }
 
     .accordion-body {
         padding: 1.5rem;
         color: #6c757d;
         line-height: 1.8;
-    }
-
-    /* Ensure proper text wrapping */
-    .accordion-button span {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-
-    /* Better spacing for icon */
-    .accordion-button i {
-        margin-right: 0.75rem;
-    }
-
-    @media (max-width: 575.98px) {
-        .accordion-button i {
-            margin-right: 0.5rem;
-            font-size: 0.9rem;
-        }
     }
 </style>
 @endpush

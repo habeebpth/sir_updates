@@ -9,7 +9,7 @@ class DeleteController extends Controller
 {
     public function __invoke(Faq $faq)
     {
-        $faq->delete();
+        // $faq->delete();
 
         return redirect()->route('admin.faq.index')->with('success', 'FAQ deleted successfully');
     }
