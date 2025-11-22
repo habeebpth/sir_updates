@@ -47,9 +47,9 @@
                 <div class="card border-0 bg-light p-3 p-md-4">
                     <div class="card-body">
                         <h3 class="h5 h6-mobile mb-3">ഇനിയും സംശയങ്ങൾ ഉണ്ടോ?</h3>
-                        <p class="text-muted mb-3 small-mobile">നിങ്ങൾക്ക് ആവശ്യമുള്ള ഉത്തരം കണ്ടെത്താൻ കഴിയുന്നില്ലേ? ദയവായി ഞങ്ങളുടെ സപ്പോർട്ട് ടീമുമായി ബന്ധപ്പെടുക.</p>
-                        <a href="{{ route('contact.index') }}" class="btn btn-primary btn-sm-mobile">
-                            <i class="bi bi-envelope me-2"></i>ഞങ്ങളെ ബന്ധപ്പെടുക
+                        <p class="text-muted mb-3 small-mobile">നിങ്ങൾക്ക് ആവശ്യമുള്ള ഉത്തരം കണ്ടെത്താൻ കഴിയുന്നില്ലേ? ദയവായി ഞങ്ങളുടെ പോസ്റ്ററുകൾ പരിശോധിക്കുക.</p>
+                        <a href="{{ route('poster.index') }}" class="btn btn-primary btn-sm-mobile">
+                            <i class="bi bi-file-earmark-image me-2"></i>പോസ്റ്ററുകൾ കാണുക
                         </a>
                     </div>
                 </div>
