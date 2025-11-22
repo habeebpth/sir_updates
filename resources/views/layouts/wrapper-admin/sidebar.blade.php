@@ -26,6 +26,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('admin.organization-representative.index') }}">
+                        <svg class="bi">
+                            <use xlink:href="#people" />
+                        </svg>
+                        Organization Representatives
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{ route('admin.post.index') }}">
                         <svg class="bi">
                             <use xlink:href="#pencil-square" />

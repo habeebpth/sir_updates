@@ -114,6 +114,9 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->middleware(['au
         Route::delete('/{user}', 'DeleteController')->name('admin.user.delete');
     });
 
+    // Organization Representative Responses
+    Route::get('/organization-representative', [OrganizationRepresentativeController::class, 'index'])
+        ->name('admin.organization-representative.index');
 
 });
 
@@ -121,16 +124,12 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->middleware(['au
 // Display the form
 Route::get('/data-collection-form', [OrganizationRepresentativeController::class, 'create'])
     ->name('organization-representative.create');
-    Route::get('/data-collection', [OrganizationRepresentativeController::class, 'create'])
+Route::get('/data-collection', [OrganizationRepresentativeController::class, 'create'])
     ->name('organization-representative.create');
 
 // Store the form data
 Route::post('/organization-representative', [OrganizationRepresentativeController::class, 'store'])
     ->name('organization-representative.store');
-
-// Display all records (optional)
-Route::get('/organization-representative', [OrganizationRepresentativeController::class, 'index'])
-    ->name('organization-representative.index');
 
 // API endpoint for fetching organization data (for auto-populate)
 Route::get('/api/organization-representative/{organizationName}', [OrganizationRepresentativeController::class, 'getOrganizationData'])

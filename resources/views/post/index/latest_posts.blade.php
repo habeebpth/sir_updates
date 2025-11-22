@@ -5,47 +5,49 @@
 <div class="latest-posts-section">
     @if($posts->isNotEmpty())
         <!-- Posts List -->
-        <div class="posts-list">
+        <div class="row g-3 g-md-4">
             @foreach($posts as $post)
-                <article class="post-list-item mb-3 mb-md-4">
-                    <a href="{{ route('post.show', $post->id) }}" class="card border-0 shadow-sm text-decoration-none d-block">
-                        <div class="row g-0">
-                            <!-- Image -->
-                            <div class="col-4 col-md-3">
-                                <div class="post-list-image-wrapper">
-                                    <img src="{{ $post->preview_image_url }}"
-                                         class="post-list-image"
-                                         alt="{{ $post->title }}"
-                                         loading="lazy">
+                <div class="col-12 col-lg-6">
+                    <article class="post-list-item h-100">
+                        <a href="{{ route('post.show', $post->id) }}" class="card border-0 shadow-sm text-decoration-none d-block h-100">
+                            <div class="row g-0 h-100">
+                                <!-- Image -->
+                                <div class="col-4 col-md-3">
+                                    <div class="post-list-image-wrapper">
+                                        <img src="{{ $post->preview_image_url }}"
+                                             class="post-list-image"
+                                             alt="{{ $post->title }}"
+                                             loading="lazy">
+                                    </div>
+                                </div>
+
+                                <!-- Content -->
+                                <div class="col-8 col-md-9">
+                                    <div class="card-body p-3 p-md-4">
+                                        <div class="mb-2">
+                                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill small">
+                                                {{ $post->category->name ?? 'Uncategorized' }}
+                                            </span>
+                                        </div>
+
+                                        <h3 class="post-list-title mb-2 mb-md-3 text-dark" style="font-family: 'Playfair Display', serif;">
+                                            {{ $post->title }}
+                                        </h3>
+
+                                        <div class="mb-2 text-muted small d-flex align-items-center gap-2">
+                                            <i class="bi bi-calendar2"></i>
+                                            <span>{{ $post->created_at->format('M j, Y') }}</span>
+                                        </div>
+
+                                        <p class="card-text text-muted small mb-0 d-none d-md-block post-excerpt">
+                                            {{ $post->shortBody() }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-
-                            <!-- Content -->
-                            <div class="col-8 col-md-9">
-                                <div class="card-body p-3 p-md-4">
-                                    <div class="mb-2">
-                                        <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill small">
-                                            {{ $post->category->name ?? 'Uncategorized' }}
-                                        </span>
-                                    </div>
-
-                                    <h3 class="post-list-title mb-2 mb-md-3 text-dark" style="font-family: 'Playfair Display', serif;">
-                                        {{ $post->title }}
-                                    </h3>
-
-                                    <div class="mb-2 text-muted small d-flex align-items-center gap-2">
-                                        <i class="bi bi-calendar2"></i>
-                                        <span>{{ $post->created_at->format('M j, Y') }}</span>
-                                    </div>
-
-                                    <p class="card-text text-muted small mb-0 d-none d-md-block post-excerpt">
-                                        {{ $post->shortBody() }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </article>
+                        </a>
+                    </article>
+                </div>
             @endforeach
         </div>
 
