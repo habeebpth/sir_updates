@@ -84,7 +84,9 @@ class OrganizationRepresentativeController extends Controller
         }
 
         $validated = $request->validate($rules);
-
+        if($request->organization_name === 'Others'){
+            $validated['organization_name'] = $request->other_organization_name;
+        }
         OrganizationRepresentative::updateOrCreate(
             ['organization_name' => $validated['organization_name']],
             $validated
