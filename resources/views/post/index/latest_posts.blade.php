@@ -4,48 +4,9 @@
 
 <div class="latest-posts-section">
     @if($posts->isNotEmpty())
-        @php
-            $featuredPost = $posts->first();
-            $otherPosts = $posts->slice(1);
-        @endphp
-
-        <!-- Featured Post -->
-        <div class="featured-post p-3 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary position-relative overflow-hidden">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <div class="featured-content">
-                        <span class="badge bg-primary mb-3">Featured</span>
-                        <h1 class="fst-italic mb-3">
-                            <a class="blog-header-logo text-body-emphasis text-decoration-none featured-title"
-                                href="{{ route('post.show', $featuredPost->id) }}"
-                                style="font-family: 'Playfair Display', serif; font-weight: 700;">
-                                {{ $featuredPost->title }}
-                            </a>
-                        </h1>
-                        <p class="lead my-3 text-muted">{{ $featuredPost->shortBody() }}</p>
-                        <div class="d-flex align-items-center gap-3 mb-3 text-muted small">
-                            <span><i class="bi bi-calendar me-1"></i>{{ $featuredPost->created_at->format('M j, Y') }}</span>
-                            <span><i class="bi bi-tag me-1"></i>{{ $featuredPost->category->name ?? 'Uncategorized' }}</span>
-                        </div>
-                        <a href="{{ route('post.show', $featuredPost->id) }}"
-                           class="btn btn-outline-primary rounded-pill px-4">
-                            Read More <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-5 d-none d-lg-block">
-                    <img src="{{ $featuredPost->preview_image_url }}"
-                         class="img-fluid rounded shadow-sm featured-image"
-                         alt="{{ $featuredPost->title }}"
-                         loading="lazy">
-                </div>
-            </div>
-        </div>
-
-        <!-- Other Posts Grid -->
-        @if($otherPosts->isNotEmpty())
+        <!-- Posts Grid -->
         <div class="row g-3 g-md-4 mb-4">
-            @foreach($otherPosts as $post)
+            @foreach($posts as $post)
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="post-card h-100">
                         <div class="card border-0 shadow-sm h-100 overflow-hidden">
@@ -96,7 +57,6 @@
                 </div>
             @endforeach
         </div>
-        @endif
 
         <!-- Pagination -->
         <div class="row mt-4">
@@ -169,23 +129,48 @@
         position: relative;
         overflow: hidden;
         background-color: #f8f9fa;
+        height: auto;
+        aspect-ratio: 16 / 9;
     }
 
     .post-image {
         width: 100%;
-        height: 220px;
-        object-fit: cover;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
         transition: transform 0.4s ease;
+        background-color: #f8f9fa;
     }
 
     @media (min-width: 768px) {
+        .post-image-wrapper {
+            height: 260px;
+            aspect-ratio: auto;
+        }
+
         .post-image {
-            height: 240px;
+            object-fit: cover;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .post-image-wrapper {
+            height: 280px;
         }
     }
 
     .post-card:hover .post-image {
-        transform: scale(1.1);
+        transform: scale(1.05);
+    }
+
+    .post-card .card-body {
+        min-height: 300px;
+    }
+
+    @media (min-width: 768px) {
+        .post-card .card-body {
+            min-height: 320px;
+        }
     }
 
     .post-overlay {

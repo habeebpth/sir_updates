@@ -18,11 +18,15 @@ class PostController extends Controller
         /** @phpstan-ignore-next-line */
         $liked_posts = Post::withCount('likedUsers')->orderBy('liked_users_count', 'desc')->get()->take(3);
 
+        // Get the "What is SIR" post - finds the first post (oldest post in database)
+        $sirPost = Post::orderBy('id', 'asc')->first();
+
         // todo Show recent categories with their latest posts
 
         return $view_factory->make('post.index', [
             'posts'      => $latest_post,
             'likedPosts' => $liked_posts,
+            'sirPost'    => $sirPost,
         ]);
     }
 
