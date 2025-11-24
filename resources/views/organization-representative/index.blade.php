@@ -6,7 +6,15 @@
             <i class="bi bi-building me-2"></i>
             Organization Representative Responses
         </h1>
-        <!-- You can add a button here if needed, similar to FAQ page -->
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <a href="{{ route('admin.organization-representative.export') }}"
+                   class="btn btn-success d-flex align-items-center gap-2">
+                    <i class="bi bi-file-earmark-excel"></i>
+                    Export Excel
+                </a>
+            </div>
+        </div>
     </div>
     @if($records->count() > 0)
         <div class="mb-4">

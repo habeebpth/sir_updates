@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\OrganizationRepresentativesExport;
 use App\Models\OrganizationRepresentative;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OrganizationRepresentativeController extends Controller
 {
@@ -120,5 +122,15 @@ class OrganizationRepresentativeController extends Controller
         ];
 
         return view('organization-representative.index', compact('records', 'districts'));
+    }
+
+    /**
+     * Export all organization representative responses as an Excel file.
+     */
+    public function export()
+    {
+        $fileName = 'organization-representatives-' . now()->format('Y-m-d_H-i') . '.xlsx';
+
+        return Excel::download(new OrganizationRepresentativesExport(), $fileName);
     }
 }

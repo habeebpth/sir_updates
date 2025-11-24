@@ -11,9 +11,12 @@
                 <a href="{{ route('post.show', $poster->id) }}" class="list-group-item list-group-item-action poster-list-item border-0 mb-3 shadow-sm text-decoration-none">
                     <div class="d-flex w-100 align-items-center gap-3 justify-content-start">
                         <i class="bi bi-file-earmark-text fs-4 text-primary d-none d-md-inline"></i>
-                        <h5 class="poster-list-title mb-0 flex-grow-1" style="font-family: 'Playfair Display', serif; text-align: left !important;">
-                            {{ $poster->title }}
-                        </h5>
+                        <div class="d-flex align-items-center w-100 gap-3 poster-title-wrapper">
+                            <span class="poster-index">{{ $loop->iteration }}.</span>
+                            <h5 class="poster-list-title mb-0 flex-grow-1" style="font-family: 'Playfair Display', serif;">
+                                {{ $poster->title }}
+                            </h5>
+                        </div>
                     </div>
                 </a>
                 @endforeach
@@ -83,6 +86,18 @@
 
     .poster-list-item:hover .poster-list-title {
         color: #667eea;
+    }
+
+    .poster-title-wrapper {
+        width: 100%;
+    }
+
+    .poster-index {
+        font-weight: 700;
+        color: #667eea;
+        min-width: 2rem;
+        display: inline-flex;
+        justify-content: flex-start;
     }
 
     /* Modal Image */
