@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\PosterController;
-// use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FaqController;
 // use App\Http\Controllers\FaqDoubtController;
 use App\Http\Controllers\PlaceholderController;
 use App\Http\Controllers\PostController;
@@ -146,7 +146,7 @@ Route::get('/data_collection', function () {
 
 
 
-// Route::get('/faqs', [FaqController::class, 'index'])->name('faq.index');
+Route::get('/faqs', [FaqController::class, 'index'])->name('faq.index');
 // Route::post('/faqs/doubts', [FaqDoubtController::class, 'store'])->name('faq.doubts.store');
 
 // Admin FAQ routes (protected by auth and admin middleware)
