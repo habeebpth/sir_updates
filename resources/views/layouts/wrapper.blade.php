@@ -53,6 +53,9 @@
         </nav>
 
         <style>
+            :root {
+                --mobile-bottom-nav-height: 64px;
+            }
             /* Mobile Bottom Navigation */
             .mobile-bottom-nav {
                 position: fixed;
@@ -67,6 +70,7 @@
                 align-items: center;
                 padding: 0.3rem 0;
                 z-index: 1000;
+                height: var(--mobile-bottom-nav-height);
             }
 
             .mobile-bottom-nav .nav-item {
@@ -107,7 +111,7 @@
             /* Add padding to body to prevent content from being hidden behind bottom nav */
             @media (max-width: 991.98px) {
                 body {
-                    padding-bottom: 50px;
+                    padding-bottom: calc(var(--mobile-bottom-nav-height) + 10px);
                 }
             }
         </style>
@@ -118,6 +122,22 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
                 integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
                 crossorigin="anonymous"></script>
+
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+                var Tawk_API = Tawk_API || {},
+                        Tawk_LoadStart = new Date();
+                (function () {
+                        var s1 = document.createElement("script"),
+                                s0 = document.getElementsByTagName("script")[0];
+                        s1.async = true;
+                        s1.src = 'https://embed.tawk.to/69256f0380b27c1961ba8e87/1jat3ja2o';
+                        s1.charset = 'UTF-8';
+                        s1.setAttribute('crossorigin', '*');
+                        s0.parentNode.insertBefore(s1, s0);
+                })();
+        </script>
+        <!--End of Tawk.to Script-->
 
         @stack('scripts')
 </body>
