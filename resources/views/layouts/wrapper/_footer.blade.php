@@ -1,14 +1,14 @@
 <div class="mt-auto">
-    <footer class="bg-dark-gradient py-5">
+    <footer class="bg-dark-gradient py-3 py-md-4">
         <div class="container">
-            <div class="row g-4 justify-content-center">
+            <div class="row g-2 justify-content-center">
                 <!-- Brand Section -->
                 <div class="col-12 text-center">
-                    <div class="mb-4">
-                        <h3 class="fs-3 fw-bold text-white mb-2" style="font-family: 'Playfair Display', serif;">
+                    <div class="mb-2 mb-md-3">
+                        <h3 class="fs-4 fs-md-3 fw-bold text-white mb-1 mb-md-2" style="font-family: 'Playfair Display', serif;">
                             SIR Watch Kerala
                         </h3>
-                        <p class="text-secondary mb-0">
+                        <p class="text-secondary mb-0 small">
                             Stay informed with the latest updates and insights.
                         </p>
                     </div>
@@ -16,7 +16,7 @@
             </div>
 
             <!-- Footer Bottom -->
-            <div class="border-top border-secondary pt-4 mt-4">
+            <div class="border-top border-secondary pt-2 pt-md-3 mt-2 mt-md-3">
                 <div class="row align-items-center">
                     <div class="col-12 text-center">
                         <p class="text-secondary mb-0">
@@ -73,26 +73,26 @@
     /* Mobile Responsive Adjustments */
     @media (max-width: 767.98px) {
         .bg-dark-gradient {
-            padding: 2rem 0 !important;
+            padding: 1.5rem 0 !important;
         }
 
         footer h3 {
-            font-size: 1.75rem !important;
+            font-size: 1.5rem !important;
         }
 
         footer h5 {
-            font-size: 1.1rem !important;
-            margin-bottom: 0.75rem !important;
+            font-size: 1rem !important;
+            margin-bottom: 0.5rem !important;
         }
 
         .footer-link {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             padding: 0.25rem 0 !important;
         }
 
         footer .border-top {
-            margin-top: 2rem !important;
-            padding-top: 2rem !important;
+            margin-top: 1rem !important;
+            padding-top: 1rem !important;
         }
     }
 

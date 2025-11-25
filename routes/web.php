@@ -3,7 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\PosterController;
 use App\Http\Controllers\FaqController;
-// use App\Http\Controllers\FaqDoubtController;
+use App\Http\Controllers\FaqDoubtController;
 use App\Http\Controllers\PlaceholderController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
@@ -147,7 +147,7 @@ Route::get('/data_collection', function () {
 
 
 Route::get('/faqs', [FaqController::class, 'index'])->name('faq.index');
-// Route::post('/faqs/doubts', [FaqDoubtController::class, 'store'])->name('faq.doubts.store');
+Route::post('/faqs/doubts', [FaqDoubtController::class, 'store'])->name('faq.doubts.store');
 
 // Admin FAQ routes (protected by auth and admin middleware)
 Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->middleware(['auth', 'admin'])->group(function () {
@@ -155,10 +155,11 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->middleware(['au
         Route::get('/', 'IndexController')->name('admin.faq.index');
         Route::get('/create', 'CreateController')->name('admin.faq.create');
         Route::post('/', 'StoreController')->name('admin.faq.store');
+        Route::get('/doubts', 'DoubtIndexController')->name('admin.faq.doubts.index');
+        Route::patch('/doubts/{doubt}', 'DoubtUpdateController')->name('admin.faq.doubts.update');
         Route::get('/{faq}', 'ShowController')->name('admin.faq.show');
         Route::get('/{faq}/edit', 'EditController')->name('admin.faq.edit');
         Route::patch('/{faq}', 'UpdateController')->name('admin.faq.update');
         Route::delete('/{faq}', 'DeleteController')->name('admin.faq.delete');
-        // Route::get('/doubts', 'DoubtIndexController')->name('admin.faq.doubts.index');
     });
 });

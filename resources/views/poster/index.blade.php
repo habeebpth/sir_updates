@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container-lg py-4">
+    <div class="mb-4">
+        <h1 class="h2 mb-0">Posters</h1>
+    </div>
     @if($posters->count() > 0)
     <!-- Posters List -->
     <div class="row">

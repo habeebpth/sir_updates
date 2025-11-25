@@ -8,21 +8,23 @@
         <div class="row g-3 g-md-4">
             @foreach($posts as $post)
                 <div class="col-12 col-lg-6">
-                    <article class="post-list-item h-100">
-                        <a href="{{ route('post.show', $post->id) }}" class="card border-0 shadow-sm text-decoration-none d-block h-100">
+                    <article class="post-list-item h-100 position-relative">
+                        <div class="card border-0 shadow-sm h-100">
                             <div class="row g-0 h-100">
                                 <!-- Image -->
                                 <div class="col-4 col-md-3">
-                                    <div class="post-list-image-wrapper">
-                                        <img src="{{ $post->preview_image_url }}"
-                                             class="post-list-image"
-                                             alt="{{ $post->title }}"
-                                             loading="lazy">
-                                    </div>
+                                    <a href="{{ route('post.show', $post->id) }}" class="text-decoration-none d-block h-100">
+                                        <div class="post-list-image-wrapper">
+                                            <img src="{{ $post->preview_image_url }}"
+                                                 class="post-list-image"
+                                                 alt="{{ $post->title }}"
+                                                 loading="lazy">
+                                        </div>
+                                    </a>
                                 </div>
 
                                 <!-- Content -->
-                                <div class="col-8 col-md-9">
+                                <div class="col-8 col-md-9 position-relative">
                                     <div class="card-body p-3 p-md-4">
                                         <div class="mb-2">
                                             <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill small">
@@ -30,22 +32,26 @@
                                             </span>
                                         </div>
 
-                                        <h3 class="post-list-title mb-2 mb-md-3 text-dark" style="font-family: 'Playfair Display', serif;">
-                                            {{ $post->title }}
-                                        </h3>
+                                        <a href="{{ route('post.show', $post->id) }}" class="text-decoration-none">
+                                            <h3 class="post-list-title mb-2 mb-md-3 text-dark" style="font-family: 'Playfair Display', serif;">
+                                                {{ $post->title }}
+                                            </h3>
+                                        </a>
 
                                         <div class="mb-2 text-muted small d-flex align-items-center gap-2">
                                             <i class="bi bi-calendar2"></i>
                                             <span>{{ $post->created_at->format('M j, Y') }}</span>
                                         </div>
 
-                                        <p class="card-text text-muted small mb-0 d-none d-md-block post-excerpt">
-                                            {{ $post->shortBody() }}
-                                        </p>
+                                        <a href="{{ route('post.show', $post->id) }}" class="text-decoration-none">
+                                            <p class="card-text text-muted small mb-0 d-none d-md-block post-excerpt">
+                                                {{ $post->shortBody() }}
+                                            </p>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </article>
                 </div>
             @endforeach

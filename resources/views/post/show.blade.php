@@ -344,7 +344,12 @@
 
             <!-- Post Header -->
             <article class="post-header">
-                <h1 class="post-title">{{ $post->title }}</h1>
+                <div class="d-flex justify-content-between align-items-start mb-3 gap-3">
+                    <h1 class="post-title mb-0 flex-grow-1">{{ $post->title }}</h1>
+                    <div class="flex-shrink-0">
+                        <x-share-button :url="route('post.show', $post->id)" :title="$post->title" :simple="true" />
+                    </div>
+                </div>
 
                 <div class="post-meta">
                     <div class="post-meta-item">
