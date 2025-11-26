@@ -46,17 +46,17 @@
                             <div class="d-flex gap-1 align-items-center justify-content-center">
                                 @php
                                     $phoneNumber = preg_replace('/[^0-9]/', '', $doubt->phone);
-                                    $whatsappUrl = 'https://wa.me/' . $phoneNumber . '?text=' . urlencode('നമസ്‌കാരം ' . $doubt->name . ', SIR സംബന്ധിച്ച താങ്കളുടെ സംശയം സംബന്ധിച്ച്: ' . Str::limit($doubt->doubt, 50));
+                                    $whatsappUrl = 'https://wa.me/' . $phoneNumber . '?text=' . urlencode('നമസ്‌കാരം ' . $doubt->name . ', SIR സംബന്ധിച്ച് SIR Watch Kerala പോർട്ടൽ വഴി താങ്കൾ ചോദിച്ച സംശയം: ' . Str::limit($doubt->doubt, 50) . "\n\nസംശയത്തിനുള്ള മറുപടി: ");
                                 @endphp
-                                <a href="{{ $whatsappUrl }}" 
-                                   target="_blank" 
-                                   class="btn btn-sm btn-success action-btn" 
+                                <a href="{{ $whatsappUrl }}"
+                                   target="_blank"
+                                   class="btn btn-sm btn-success action-btn"
                                    title="Reply via WhatsApp">
                                     <i class="bi bi-whatsapp"></i>
                                 </a>
                                 @if(!$doubt->is_reviewed)
-                                    <form action="{{ route('admin.faq.doubts.update', $doubt->id) }}" 
-                                          method="POST" 
+                                    <form action="{{ route('admin.faq.doubts.update', $doubt->id) }}"
+                                          method="POST"
                                           class="d-inline m-0"
                                           onsubmit="return confirm('Mark this doubt as replied?');">
                                         @csrf
@@ -92,7 +92,7 @@
     .table td {
         vertical-align: middle;
     }
-    
+
     /* Icon-only buttons - clean and compact */
     .table .action-btn {
         padding: 0.5rem !important;
@@ -112,7 +112,7 @@
         min-width: 2.25rem !important;
         text-decoration: none !important;
     }
-    
+
     /* Icon styling - perfectly centered */
     .table .action-btn i.bi {
         font-size: 1.1rem !important;
@@ -128,21 +128,21 @@
         position: relative !important;
         top: 0 !important;
     }
-    
+
     .table .action-btn:hover {
         transform: translateY(-1px);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    
+
     .table .action-btn:active {
         transform: translateY(0);
     }
-    
+
     .table .action-btn:disabled {
         opacity: 0.6;
         cursor: not-allowed;
     }
-    
+
     /* Ensure form buttons align properly */
     .table form.d-inline {
         display: inline-block !important;
